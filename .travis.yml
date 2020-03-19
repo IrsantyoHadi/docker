@@ -1,9 +1,9 @@
-sudo : required
-services : 
+sudo: required
+services:
   - docker
 
-before_install : 
+before_install:
   - docker build -t irsantyohadi/docker -f Dockerfile.dev .
 
-script : 
-  - docker run -e CI=true irsantyohadi/docker npm run test
+script:
+  - docker run -e CI=true irsantyohadi/docker npm run test -- --coverage
